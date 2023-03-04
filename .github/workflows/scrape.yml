@@ -30,7 +30,7 @@ jobs:
         echo "Downloading from URL: ${url}"
 
         # Download and uncompress CSV file from URL, save to file
-        curl -s "${url}" | gzip -d -c > | tail -n +2 > epss.csv
+        curl -s "${url}" | gzip -d -c | tail -n +2 > epss.csv
 
     - name: Commit and push if it changed
       run: |-
