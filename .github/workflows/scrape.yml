@@ -17,7 +17,17 @@ jobs:
 
     - name: Scrape EPSS scores for current date
       run: |-
-        curl -s "https://epss.cyentia.com/epss_scores-$(date +%Y-%m-%d).csv.gz" | gzip -d -c > epss.csv
+        # Save current date as YYYY-MM-DD format
+        date=$(date +%Y-%m-%d)
+
+        # Construct URL with current date
+        url="https://epss.cyentia.com/epss_scores-${date}.csv.gz"
+
+        # Log URL being called
+        echo "Downloading from URL: ${url}"
+
+        # Download and uncompress CSV file from URL, save to file
+        curl -s "${url}" | gzip -d -c > epss.csv
 
     - name: Commit and push if it changed
       run: |-
