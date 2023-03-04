@@ -17,6 +17,9 @@ jobs:
 
     - name: Scrape EPSS scores for current date
       run: |-
+        # Set time zone to EST
+        export TZ=America/New_York
+        
         # Save current date as YYYY-MM-DD format
         date=$(date +%Y-%m-%d)
 
