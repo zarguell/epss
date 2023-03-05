@@ -3,7 +3,7 @@ name: Pull today's scores
 on:
   workflow_dispatch:
   schedule:
-    - cron: '6 6 * * *'
+    - cron: '6 12 * * *'
 
 jobs:
   scheduled:
